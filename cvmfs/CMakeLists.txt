@@ -174,6 +174,7 @@ set (CVMFS_SWISSKNIFE_SOURCES
   history_sqlite.h history_sqlite.cc
   letter.h letter.cc
   xattr.h xattr.cc
+  pack.h pack.cc
 
   swissknife_zpipe.h swissknife_zpipe.cc
   swissknife_check.h swissknife_check.cc
