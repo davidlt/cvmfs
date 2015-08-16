@@ -70,6 +70,7 @@ set(CVMFS_UNITTEST_FILES
   t_manifest.cc
   t_tracer.cc
   t_file_chunk.cc
+  t_pack.cc
 )
 
 #
@@ -188,6 +189,8 @@ set (CVMFS_UNITTEST_SOURCES
   ${CVMFS_SOURCE_DIR}/fetch.cc
   ${CVMFS_SOURCE_DIR}/sqlitevfs.cc
   ${CVMFS_SOURCE_DIR}/sqlitevfs.h
+  ${CVMFS_SOURCE_DIR}/pack.h
+  ${CVMFS_SOURCE_DIR}/pack.cc
 )
 
 set (CVMFS_UNITTEST_DEBUG_SOURCES ${CVMFS_UNITTEST_SOURCES})
