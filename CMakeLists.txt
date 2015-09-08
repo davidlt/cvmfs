@@ -170,6 +170,7 @@ else (MACOSX)
   option (BUILD_LIBCVMFS        "Build the CernVM-FS client library"                               ON)
   option (BUILD_SERVER          "Build writer's end programs"                                      ON)
 endif(MACOSX)
+option (BUILD_OCTOPUS           "Build the octopus REST server                                     OFF")
 option (BUILD_SERVER_DEBUG      "Build writer's end programs with debug symbols and debug outputs" OFF)
 option (BUILD_UNITTESTS         "Build the CernVM-FS unit test set"                                OFF)
 option (BUILD_UNITTESTS_DEBUG   "Build the CernVM-FS unit test set with verbose output and -g"     OFF)
@@ -516,7 +517,7 @@ if (BUILD_DOCUMENTATION)
   execute_process (
     COMMAND sh -c "/bin/sed -i -e 's/@VERSION@/${CernVM-FS_VERSION_STRING}/g' ${CMAKE_BINARY_DIR}/Doxyfile.in"
   )
-  execute_process (   
+  execute_process (
     COMMAND sh -c "/bin/sed -i -e 's,@SRC_DIR@,${CMAKE_SOURCE_DIR},g' ${CMAKE_BINARY_DIR}/Doxyfile.in"
   )
   include (cmake/Modules/UseDoxygen)
