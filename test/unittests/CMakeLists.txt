@@ -11,10 +11,10 @@ set (PROJECT_TEST_DEBUG_NAME ${PROJECT_TEST_NAME}_debug)
 set(CVMFS_UNITTEST_FILES
   # test steering
   main.cc
-  
+
   # test utility functions
   testutil.cc testutil.h
-  
+
   t_atomic.cc
   t_smallhash.cc
   t_bigvector.cc
@@ -71,13 +71,14 @@ set(CVMFS_UNITTEST_FILES
   t_tracer.cc
   t_file_chunk.cc
   t_pack.cc
+  t_encrypt.cc
 )
 
 #
 # unit test source files
 #
 set (CVMFS_SOURCE_DIR "${CMAKE_SOURCE_DIR}/cvmfs")
-set (CVMFS_UNITTEST_SOURCES 
+set (CVMFS_UNITTEST_SOURCES
 
   ${CVMFS_UNITTEST_FILES}
 
@@ -191,6 +192,8 @@ set (CVMFS_UNITTEST_SOURCES
   ${CVMFS_SOURCE_DIR}/sqlitevfs.h
   ${CVMFS_SOURCE_DIR}/pack.h
   ${CVMFS_SOURCE_DIR}/pack.cc
+  ${CVMFS_SOURCE_DIR}/encrypt.cc
+  ${CVMFS_SOURCE_DIR}/encrypt.h
 )
 
 set (CVMFS_UNITTEST_DEBUG_SOURCES ${CVMFS_UNITTEST_SOURCES})
@@ -264,7 +267,7 @@ if (BUILD_UNITTESTS_DEBUG)
   if (TBB_PRIVATE_LIB)
     add_dependencies (${PROJECT_TEST_DEBUG_NAME} libtbb)
   endif (TBB_PRIVATE_LIB)
-  
+
   add_dependencies (${PROJECT_TEST_DEBUG_NAME} libsha2)
 endif (BUILD_UNITTESTS_DEBUG)
 
