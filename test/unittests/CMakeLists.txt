@@ -72,6 +72,7 @@ set(CVMFS_UNITTEST_FILES
   t_file_chunk.cc
   t_pack.cc
   t_encrypt.cc
+  t_json.cc
 )
 
 #
@@ -194,6 +195,8 @@ set (CVMFS_UNITTEST_SOURCES
   ${CVMFS_SOURCE_DIR}/pack.cc
   ${CVMFS_SOURCE_DIR}/encrypt.cc
   ${CVMFS_SOURCE_DIR}/encrypt.h
+  ${CVMFS_SOURCE_DIR}/json_document.h
+  ${CVMFS_SOURCE_DIR}/json_document.cc
 )
 
 set (CVMFS_UNITTEST_DEBUG_SOURCES ${CVMFS_UNITTEST_SOURCES})
@@ -214,6 +217,7 @@ include_directories (${INCLUDE_DIRECTORIES})
 if (BUILD_UNITTESTS)
   add_executable (${PROJECT_TEST_NAME} ${CVMFS_UNITTEST_SOURCES})
   add_dependencies (${PROJECT_TEST_NAME} googletest)
+  add_dependencies (${PROJECT_TEST_NAME} libvjson)
 endif (BUILD_UNITTESTS)
 
 if (BUILD_UNITTESTS_DEBUG)
@@ -289,7 +293,8 @@ set (UNITTEST_LINK_LIBRARIES ${GTEST_LIBRARIES} ${GOOGLETEST_ARCHIVE} ${OPENSSL_
                              ${CURL_LIBRARIES} ${LIBCURL_ARCHIVE} ${CARES_ARCHIVE}
                              ${SQLITE3_LIBRARY} ${SQLITE3_ARCHIVE} ${TBB_LIBRARIES}
                              ${ZLIB_LIBRARIES} ${ZLIB_ARCHIVE} ${RT_LIBRARY} ${UUID_LIBRARIES}
-                             ${SHA2_ARCHIVE} ${PACPARSER_LIBRARIES} ${PACPARSER_ARCHIVE} pthread dl)
+                             ${SHA2_ARCHIVE} ${PACPARSER_LIBRARIES} ${PACPARSER_ARCHIVE} 
+                             ${VJSON_ARCHIVE} pthread dl)
 
 if (BUILD_UNITTESTS)
   target_link_libraries (${PROJECT_TEST_NAME} ${UNITTEST_LINK_LIBRARIES})
