@@ -263,6 +263,7 @@ struct hash_murmur {
   }
 };
 std::string Base64(const std::string &data);
+std::string Base64Url(const std::string &data);
 bool Debase64(const std::string &data, std::string *decoded);
 
 template <class T>
