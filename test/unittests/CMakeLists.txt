@@ -73,6 +73,7 @@ set(CVMFS_UNITTEST_FILES
   t_pack.cc
   t_encrypt.cc
   t_json.cc
+	t_uri_map.cc
 )
 
 #
@@ -197,6 +198,11 @@ set (CVMFS_UNITTEST_SOURCES
   ${CVMFS_SOURCE_DIR}/encrypt.h
   ${CVMFS_SOURCE_DIR}/json_document.h
   ${CVMFS_SOURCE_DIR}/json_document.cc
+	
+	${CVMFS_SOURCE_DIR}/webapi/fcgi.h
+	${CVMFS_SOURCE_DIR}/webapi/fcgi.cc
+	${CVMFS_SOURCE_DIR}/webapi/uri_map.h
+	${CVMFS_SOURCE_DIR}/webapi/uri_map.cc
 )
 
 set (CVMFS_UNITTEST_DEBUG_SOURCES ${CVMFS_UNITTEST_SOURCES})
