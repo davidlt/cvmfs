@@ -251,6 +251,7 @@ class Database : SingleCopy {
     DatabaseRaiiWrapper(const std::string   &filename,
                         Database<DerivedT>  *delegate)
       : sqlite_db(NULL)
+      , lookaside_buffer(NULL)
       , db_file_guard(filename, UnlinkGuard::kDisabled)
       , delegate_(delegate) {}
     ~DatabaseRaiiWrapper();
@@ -263,6 +264,7 @@ class Database : SingleCopy {
     bool OwnsFile() const    { return db_file_guard.IsEnabled(); }
 
     sqlite3             *sqlite_db;
+    void                *lookaside_buffer;
     UnlinkGuard          db_file_guard;
     Database<DerivedT>  *delegate_;
   };
